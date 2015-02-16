@@ -7,6 +7,6 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/*
 
 COPY . /root/workloadmodels
-WORKDIR /root/workloadmodels/models/m_lublin99
+WORKDIR /root/workloadmodels/models
 RUN make clean && make && make install
 WORKDIR /root
