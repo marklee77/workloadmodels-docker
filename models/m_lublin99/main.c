@@ -373,7 +373,7 @@ unsigned long time_from_begin[2];
 /*----------------------------------------------------------------------------*/
 /*                      THE MAIN FUNCTION                                     */
 /*----------------------------------------------------------------------------*/
-int main()
+int main(int argc, char *argv[])
 {
   int i;
   double a1[2],b1[2],a2[2],b2[2],pa[2],pb[2];
@@ -385,8 +385,19 @@ int main()
   double weights[2][BUCKETS] ; /* the appropriate weight (points) for each    */
 			       /* time-interval used in the arrive function   */
   long seed;
+  char *convend;
 
-  seed = (long)time(NULL);
+  if (argc != 2) {
+    printf("usage:\n\t%s <seed-value>\n", argv[0]);
+    exit(2);
+  }
+
+  seed = strtol(argv[1], &convend, 10);
+  if (strlen(convend)) {
+    printf("integer conversion error at %s\n", convend);
+    exit(3);
+  }
+
   srand48(seed);
 
   /* set all the parameters' values */
