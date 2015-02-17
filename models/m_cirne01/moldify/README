@@ -1,0 +1,67 @@
+moldify - Generates a moldable workload having as input a rigid workload
+        - Implements Cirne Moldability Model
+
+1- Compling
+Compilation is done by running make-moldify, which generates the executable moldify
+
+2- Using
+usage: moldify <workload> <nodes> <accuracy> <replacement> <nas-exec-times>
+   or: moldify <workload> <nodes> <accuracy> <replacement> <partsizedist> [<k_sigma>]
+       where: <workload> contains the original workload
+              <nodes> is number of nodes of the target supercomputer
+              <accuracy> == perfect | as-original | random | <value>
+              <replacement> == nas | ep | downey
+              if <replacement> == nas | ep, you need to specify:
+                     <nas-exec-times> contains the execution times of the NAS benchmark
+              if <replacement> == downey, you need to specify:
+                     <partsizedist> == cont | p2bias
+                     <k_sigma> == the multiplier for sigma (default == 1)
+ 
+3- Input format
+Each line represents a job.  The cols are:
+   1- job name 
+   2- job owner 
+   3- tag 
+   4- job type (always 'fixed')
+   5- submission time 
+   6- number of processors
+   7- request time
+   8- start time 
+   9- finish time
+  10- status (either 'completed' or 'cancelled')
+      if status is 'completed', execution time = finish time - start time
+      if status is 'cancelled', finish time represents the cancelation time
+
+4- Output format
+   1- job name 
+   2- job owner 
+   3- tag 
+   4- job type (always 'fixed')
+   5- submission time
+if type is 'fixed':
+   6- number of processors
+   7- request time
+   8- start time
+   9- finish time
+  10- status (either 'completed' or 'cancelled')
+      if status is 'completed', execution time = finish time - start time
+      if status is 'cancelled', finish time represents the cancelation time
+if type is 'downey':
+   6- cacelation time (0 if job has not been cancelled)
+   7- L
+   8- A
+   9- sigma
+  10- request accuracy
+  11- number of choices of number of processors
+  12... list of choices of number of processors
+if type is 'nas':
+   6- NAS benchmark ('EP', 'MG', 'SP', 'BT', 
+   7- NAS class ('B', 'C')
+   8- request accuracy
+
+4- Reference
+"A Model for Moldable Supercomputer Jobs", by Walfredo Cirne and Francine Berman, 
+Proceedings of the IPDPS 2001 - International Parallel and Distributed Processing Symposium, April 2001 
+http://walfredo.dsc.ufpb.br/resume.html#publications 
+
+
