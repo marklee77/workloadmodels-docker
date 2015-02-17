@@ -7,8 +7,8 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <fstream.h>
-#include <iostream.h>
+#include <fstream>
+#include <iostream>
 
 #include "random.h"
 #include "clock.h"

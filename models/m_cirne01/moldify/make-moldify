@@ -1,5 +1,2 @@
-#!/bin/ksh
-
-g++ -g -O -D`uname` -o moldify clock.cpp moldify.cpp downey.cpp jobspec.cpp nasjobs.cpp util.cpp moldability.cpp random.cpp randlib.cpp com.cpp
-
-
+#!/bin/bash
+g++ -w -g -O -D`uname` -o moldify clock.cpp moldify.cpp downey.cpp jobspec.cpp nasjobs.cpp util.cpp moldability.cpp random.cpp randlib.cpp com.cpp

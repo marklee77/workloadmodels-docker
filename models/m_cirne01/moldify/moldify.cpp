@@ -9,7 +9,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <iostream.h>
+#include <iostream>
 #include "strstream.h"
 #include <string.h>
 #ifdef AIX
@@ -31,7 +31,7 @@ static void splitjobs( List<JobSpec>* jobspeclist, List<JobSpec>** reservedlist,
 static void jobscat( List<JobSpec>* target, List<JobSpec>* source );
 
 
-void main( int argc, char** argv )
+int main( int argc, char** argv )
 {
 
 
@@ -298,9 +298,7 @@ void main( int argc, char** argv )
 	}
 
 
-	exit( 0 );
-
-
+	return 0;
 }
 
 

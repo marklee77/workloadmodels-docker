@@ -5,8 +5,8 @@
 
 
 #include <math.h>
-#include <fstream.h>
-#include <iostream.h>
+#include <fstream>
+#include <iostream>
 
 
 #define __JOBSPEC_CPP
@@ -178,7 +178,7 @@ void readjobs( char* jobsfile, SSS* sc, List<JobSpec>* jobspeclist, bool richreq
 		jobspeclist = sc->sss_jobspeclist;
 	}
 
-	ifstream jobs( jobsfile, ( ios::nocreate | ios::in ) );
+	ifstream jobs( jobsfile, ( ios::in ) );
 	if( jobs == NULL ){
 		fatal( "could not open the jobs file" );
 	}

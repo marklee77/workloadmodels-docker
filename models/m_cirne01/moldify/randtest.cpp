@@ -6,8 +6,8 @@
 
 
 
-#include <fstream.h>
-#include <iostream.h>
+#include <fstream>
+#include <iostream>
 
 #include "util.h"
 #include "random.h"

@@ -13,8 +13,9 @@
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <fstream.h>
-#include <iostream.h>
+#include <fstream>
+#include <iostream>
+using namespace std;
 #include <string.h>
 #ifdef AIX
 #	include <strings.h>
@@ -110,7 +111,7 @@ void shuffle( int* array, int size );
 template <class ResultType, class StorageType>
 ResultType getconf( char* conffilename, char* target )
 {
-	ifstream confstream( conffilename, ( ios::nocreate | ios::in ) );
+	ifstream confstream( conffilename, ( ios::in ) );
 	if( confstream == NULL ){
 		fatal( "could not open the configuration file" );
 	}
