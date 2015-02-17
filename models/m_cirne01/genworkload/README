@@ -1,0 +1,35 @@
+genworkload - Generates a synthetic workload using Cirne Comprehensive Model
+
+1- Compling
+Compilation is done by running make-genworkload, which generates the executable genworkload
+
+2- Using
+genworkload <nodes> <arrivalpattern> <jobs> <workload> [<k> <reductionfactor>]
+where: <nodes> is how many nodes the supercomputer has
+       <arrivalpattern> == anl | ctc | kth | sdsc
+       <jobs> is the number of jobs to generate
+       <workload>.workload contains the output
+       <k> is the load multiplier (default is 1)
+       <reductionfactor> will minimize the job size but keep the load constant (default is 1)
+ 
+3- Output format
+Each line represents a job.  The cols are:
+   1- job name (always '*')
+   2- job owner (always '*')
+   3- tag (always 'synthetic')
+   4- job type (always 'fixed')
+   5- submission time 
+   6- number of processors
+   7- request time
+   8- start time 
+   9- finish time
+  10- status (either 'completed' or 'cancelled')
+      if status is 'completed', execution time = finish time - start time
+      if status is 'cancelled', finish time represents the cancelation time
+
+4- Reference
+"A Comprehensive Model of the Supercomputer Workload" by Walfredo Cirne and Francine Berman,
+Proceedings of the WWC-4: IEEE 4th Annual Workshop on Workload Characterization, December 2001,
+http://walfredo.dsc.ufpb.br/resume.html#publications 
+
+
