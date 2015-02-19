@@ -8,5 +8,5 @@ RUN apt-get update && \
 
 COPY . /root/workloadmodels
 WORKDIR /root/workloadmodels/models
-RUN make clean && make && make install
+RUN make install
 WORKDIR /root

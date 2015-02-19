@@ -6,5 +6,5 @@ m_lublin99: main.c
 clean:
 	rm -f m_lublin99
 
-install:
+install: m_lublin99
 	install -o root -g root -m 755 m_lublin99 /usr/local/bin/m_lublin99

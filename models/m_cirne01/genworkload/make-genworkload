@@ -1,2 +1,0 @@
-#!/bin/bash
-g++ -w -g -O -D`uname` -static -o genworkload genworkload.cpp clock.cpp downey.cpp jobspec.cpp nasjobs.cpp util.cpp jobstream.cpp random.cpp randlib.cpp com.cpp
